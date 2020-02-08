@@ -1,0 +1,30 @@
+{
+  "name": "vscode-config",
+  "version": "1.0.0",
+  "description": "在多台设备上同步vscode配置的命令行工具",
+  "main": "bin/index.js",
+  "scripts": {},
+  "keywords": [
+    "Ajanuw",
+    "vscode-config",
+    "vc"
+  ],
+  "author": "Ajanuw",
+  "license": "MIT",
+  "homepage": "https://github.com/januwA/vscode-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/januwA/vscode-config.git"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "fs-extra": "^8.1.0",
+    "json5": "^2.1.1",
+    "ora": "^4.0.3",
+    "shelljs": "^0.8.3",
+    "yargs": "^15.1.0"
+  },
+  "bin": {
+    "vc": "./bin/index.js"
+  }
+}
