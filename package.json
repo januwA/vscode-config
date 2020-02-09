@@ -1,6 +1,6 @@
 {
   "name": "vscode-config",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "在多台设备上同步vscode配置的命令行工具",
   "main": "./bin/vc",
   "scripts": {},

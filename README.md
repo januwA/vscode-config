@@ -25,7 +25,16 @@ $ vc pull
 ```
 > 如果pull卡住了，就退出进程在执行一次
 
+> pull完后，记得重启vscode
+
 ## 将本地配置保存到gist
 ```shell
 $ vc push
+```
+
+## test
+```
+$ node ./bin/vc -h
+$ npm link
+$ npm unlink
 ```
