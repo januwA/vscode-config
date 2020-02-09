@@ -20,6 +20,9 @@ const { argv } = yargs
       .option("list", {
         description: "查看当前配置"
       })
+      .option("reset", {
+        description: "重置配置"
+      })
       .help("help");
   })
   .command("pull", "拉取配置")
@@ -32,20 +35,25 @@ const { _: ARGV } = argv;
 
 Config.checkConfigFile();
 if (ARGV.includes("config")) {
-  if (argv.token) {
-    Config.setGithubToken(argv.token);
-  }
+  switch (true) {
+    case !!argv.token:
+      Config.setGithubToken(argv.token);
+      break;
+    case !!argv.id:
+      Config.setGistId(argv.id);
+      break;
+    case !!argv.name:
+      Config.setGistFileName(argv.name);
+      break;
+    case !!argv.list:
+      Config.show();
+      break;
+    case !!argv.reset:
+      Config.reset();
+      break;
 
-  if (argv.id) {
-    Config.setGistId(argv.id);
-  }
-
-  if (argv.name) {
-    Config.setGistFileName(argv.name);
-  }
-
-  if (argv.list) {
-    Config.show();
+    default:
+      Config.show();
   }
 }
 
@@ -58,6 +66,8 @@ if (ARGV.includes("push")) {
 }
 if (ARGV.includes("pull")) {
   // 拉取gist的配置，设置settings.json和安装插件
-  vcService.pull();
+  if (Config.configOk) {
+    vcService.pull();
+  }
   return;
 }
